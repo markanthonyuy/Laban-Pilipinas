@@ -177,13 +177,7 @@ textarea {
     background: url('../../public/image/video-tab-tv5.jpg') no-repeat top left;
 }
 
-.stream_tv5:hover {
-    width: 62px;
-    height: 35px;
-    background: url('../../public/image/video-tab-tv5-on-click.jpg') no-repeat top left;
-}
-
-.stream_tv5_active {
+.stream_tv5:hover, .stream_tv5_active {
     width: 62px;
     height: 35px;
     background: url('../../public/image/video-tab-tv5-on-click.jpg') no-repeat top left;
@@ -195,31 +189,18 @@ textarea {
     background: url('../../public/image/video-tab-aksyon.jpg') no-repeat top left;
 }
 
-.stream_aksyontv:hover {
+.stream_aksyontv:hover, .stream_aksyontv_active {
     width: 107px;
     height: 35px;
     background: url('../../public/image/video-tab-aksyon-on-click.jpg') no-repeat top left;
 }
-
-.stream_aksyontv_active {
-    width: 107px;
-    height: 35px;
-    background: url('../../public/image/video-tab-aksyon-on-click.jpg') no-repeat top left;
-}
-
 .stream_gilas {
     width: 78px;
     height: 35px;
     background: url('../../public/image/video-tab-gilas.jpg') no-repeat top left;
 }
 
-.stream_gilas:hover {
-    width: 78px;
-    height: 35px;
-    background: url('../../public/image/video-tab-gilas-on-click.jpg') no-repeat top left;
-}
-
-.stream_gilas_active {
+.stream_gilas:hover, .stream_gilas_active {
     width: 78px;
     height: 35px;
     background: url('../../public/image/video-tab-gilas-on-click.jpg') no-repeat top left;
