@@ -125,6 +125,15 @@ textarea {
     width: 50%;
 }
 
+#temp_social_media {
+    list-style: none;
+    float: left;
+}
+
+#temp_social_media li {
+    float: left;
+}
+
 #main_header_nav ul {
     list-style: none;
 }
@@ -136,6 +145,10 @@ textarea {
     margin-bottom: 1px;
     text-decoration: none;
     color: #fff;
+}
+
+#temp_nav {
+
 }
 
 #main_stream {

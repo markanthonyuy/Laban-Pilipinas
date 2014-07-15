@@ -19,14 +19,13 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
         <div id="main">
             <header>
                 <nav id="main_header_nav">
-                    <p class="social_media">
+                    <!-- <p class="social_media">
                         <a href=""><img src="public/image/social-media-tab-fb.jpg"></a>
                         <a href=""><img src="public/image/social-media-tab-twitter.jpg"></a>
-                    </p>
+                    </p> -->
                     <!-- <ul>
                         <li><a href="#">GILAS GAME</a></li>
                         <li><a href="#">ROSTERS</a></li>
@@ -36,13 +35,19 @@
                     </ul> -->
                 </nav>
                 <section id="main_stream">
-                    <nav class="clearfix">
-                        <ul id="main_stream_nav" class="clearfix">
-                            <li><a href="#" class="stream_tv5_active" data-target="tv5" data-default-class="stream_tv5"></a></li>
-                            <li><a href="#" class="stream_aksyontv" data-target="aksyontv" data-default-class="stream_aksyontv"></a></li>
-                            <li><a href="#" class="stream_gilas" data-target="gilas" data-default-class="stream_gilas"></a></li>
+                    <div id="temp_nav" class="clearfix">
+                        <ul id="temp_social_media" class="clearfix">
+                            <li><a href="https://www.facebook.com/Sports5PH"><img src="public/image/social-media-tab-fb.jpg"></a></li>
+                            <li><a href="https://twitter.com/sports5PH"><img src="public/image/social-media-tab-twitter.jpg"></a></li>
                         </ul>
-                    </nav>
+                        <nav class="clearfix">
+                            <ul id="main_stream_nav" class="clearfix">
+                                <li><a href="#" class="stream_tv5_active" data-target="tv5" data-default-class="stream_tv5"></a></li>
+                                <li><a href="#" class="stream_aksyontv" data-target="aksyontv" data-default-class="stream_aksyontv"></a></li>
+                                <li><a href="#" class="stream_gilas" data-target="gilas" data-default-class="stream_gilas"></a></li>
+                            </ul>
+                        </nav>
+                    </div>
                     <div id="main_frame_holder">
                         <iframe src="http://news5.com.ph/embed.aspx?g=0A999CBBC5" class="active" id="iframe_tv5"></iframe>
                         <iframe src="http://news5.com.ph/embed.aspx?g=A12F20084A" class="" id="iframe_aksyontv"></iframe>
