@@ -6,7 +6,17 @@
 		$frameAksyonTV 	= $('#iframe_aksyontv'),
 		$frameGilas 	= $('#iframe_gilas');
 
+	function setFrameWidth() {
+		var _this = $(this);
+			width = _this.width() * .5;
+		$('#main_stream').width(width);
+	}
+
+	setFrameWidth();
+
 	$.backstretch('./public/image/smart-gilas-2014-livestream-bg-study-1.jpg');
+
+	$(window).resize(setFrameWidth);
 
 	$frameNav.on('click', function() {
 		var _this = $(this),
