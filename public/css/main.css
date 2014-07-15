@@ -1,0 +1,411 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+*, *::after, *::before {
+    padding: 0;
+    margin: 0; 
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+#main {
+
+}
+
+#main header {
+    width: 100%;
+    height: 769px;
+    position: relative;
+    background: url('../../public/image/smart-gilas-2014-livestream-bg-study-1.jpg') no-repeat center center;
+    overflow: hidden;
+}
+
+#main_header_nav {
+    position: absolute;
+    top: 40%;
+}
+
+.social_media {
+
+}
+
+.social_media a {
+    display: inline-block;
+    float: left;
+    width: 50%;
+}
+
+#main_header_nav ul {
+    list-style: none;
+}
+
+#main_header_nav ul li a {
+    width: 100%;
+    display: inline-block;
+    background: #ccc;
+    margin-bottom: 1px;
+    text-decoration: none;
+    color: #fff;
+}
+
+#main_stream {
+    margin: 160px auto;
+    max-width: 640px;
+    max-height: 360px;
+    width: 100%;
+    height: 100%;
+}
+
+#main_stream_nav {
+    list-style: none;
+    float: right;
+    height: 35px;
+}
+
+#main_stream_nav li {
+    float: left;
+    margin-left: 1px;
+}
+
+#main_stream_nav li a {
+    color: #fff;
+    display: inline-block;
+}
+
+.stream_tv5 {
+    width: 62px;
+    height: 35px;
+    background: url('../../public/image/video-tab-tv5.jpg') no-repeat top left;
+}
+
+.stream_tv5:hover {
+    width: 62px;
+    height: 35px;
+    background: url('../../public/image/video-tab-tv5-on-click.jpg') no-repeat top left;
+}
+
+.stream_tv5_active {
+    width: 62px;
+    height: 35px;
+    background: url('../../public/image/video-tab-tv5-on-click.jpg') no-repeat top left;
+}
+
+.stream_aksyontv {
+    width: 107px;
+    height: 35px;
+    background: url('../../public/image/video-tab-aksyon.jpg') no-repeat top left;
+}
+
+.stream_aksyontv:hover {
+    width: 107px;
+    height: 35px;
+    background: url('../../public/image/video-tab-aksyon-on-click.jpg') no-repeat top left;
+}
+
+.stream_aksyontv_active {
+    width: 107px;
+    height: 35px;
+    background: url('../../public/image/video-tab-aksyon-on-click.jpg') no-repeat top left;
+}
+
+.stream_gilas {
+    width: 78px;
+    height: 35px;
+    background: url('../../public/image/video-tab-gilas.jpg') no-repeat top left;
+}
+
+.stream_gilas:hover {
+    width: 78px;
+    height: 35px;
+    background: url('../../public/image/video-tab-gilas-on-click.jpg') no-repeat top left;
+}
+
+.stream_gilas_active {
+    width: 78px;
+    height: 35px;
+    background: url('../../public/image/video-tab-gilas-on-click.jpg') no-repeat top left;
+}
+
+#main_frame_holder {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    background: #000;
+}
+
+#main_frame_holder iframe {
+    display: none;
+}
+
+#main_frame_holder iframe.active {
+    display: block;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
