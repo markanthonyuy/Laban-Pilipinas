@@ -14,9 +14,7 @@
 	}
 
 	setFrameWidthAndMarginTop();
-
 	$.backstretch('./public/image/smart-gilas-2014-livestream-bg-study-1.jpg');
-
 	$(window).resize(setFrameWidthAndMarginTop);
 
 	$frameNav.on('click', function() {
