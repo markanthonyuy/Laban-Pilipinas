@@ -4,7 +4,10 @@
 		$frame 			= $('#main_frame_holder iframe'),
 		$frameTV5 		= $('#iframe_tv5'),
 		$frameAksyonTV 	= $('#iframe_aksyontv'),
-		$frameGilas 	= $('#iframe_gilas');
+		$frameGilas 	= $('#iframe_gilas'),
+		$header 		= $('#main header');
+
+	$header.backstretch('./public/image/smart-gilas-2014-livestream-bg-study-1.jpg');
 
 	$frameNav.on('click', function() {
 		var _this = $(this),
