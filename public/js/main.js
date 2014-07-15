@@ -6,17 +6,18 @@
 		$frameAksyonTV 	= $('#iframe_aksyontv'),
 		$frameGilas 	= $('#iframe_gilas');
 
-	function setFrameWidth() {
+	function setFrameWidthAndMarginTop() {
 		var _this = $(this);
 			width = _this.width() * .5;
-		$('#main_stream').width(width);
+			marginTop = _this.height() * .22;
+		$('#main_stream').width(width).css('margin-top', marginTop + 'px');
 	}
 
-	setFrameWidth();
+	setFrameWidthAndMarginTop();
 
 	$.backstretch('./public/image/smart-gilas-2014-livestream-bg-study-1.jpg');
 
-	$(window).resize(setFrameWidth);
+	$(window).resize(setFrameWidthAndMarginTop);
 
 	$frameNav.on('click', function() {
 		var _this = $(this),
