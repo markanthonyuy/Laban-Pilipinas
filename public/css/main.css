@@ -106,6 +106,7 @@ textarea {
 
 #main header {
     width: 100%;
+    min-height: 769px;
     position: relative;
     overflow: hidden;
 }
@@ -125,15 +126,6 @@ textarea {
     width: 50%;
 }
 
-#temp_social_media {
-    list-style: none;
-    float: left;
-}
-
-#temp_social_media li {
-    float: left;
-}
-
 #main_header_nav ul {
     list-style: none;
 }
@@ -145,10 +137,6 @@ textarea {
     margin-bottom: 1px;
     text-decoration: none;
     color: #fff;
-}
-
-#temp_nav {
-
 }
 
 #main_stream {
@@ -215,10 +203,6 @@ textarea {
 }
 
 #main_frame_holder iframe {
-    display: none;
-}
-
-#main_frame_holder iframe.active {
     display: block;
     border: none;
     position: absolute;
@@ -229,8 +213,105 @@ textarea {
 }
 
 
+/*
+ * Gilas Games
+ */
 
+#gilas_games {
+    width: 100%;
+    padding-top: 40px;
+}
 
+#gilas_games h2 {
+    text-align: center;
+}
+
+.gilas_games_wrap {
+    width: 950px;
+    height: 447px;
+    margin: 0 auto 40px auto;
+    background: url('../../public/image/bg-gilas-games.jpg') no-repeat top left;
+    overflow: hidden;
+}
+
+.gilas_games_wrap nav {
+    margin: 15px 0 0 15px;
+}
+
+.gilas_games_wrap nav ul {
+    list-style: none;
+}
+
+.gilas_games_wrap nav ul li {
+    float: left;
+    margin-right: 5px;
+}
+
+.gilas_tab {
+    margin-left: 15px;
+    position: relative;
+    width: 920px;
+    height: 350px;
+    overflow-y: auto;
+    background: #fff;
+}
+
+#gilas_team_logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#gilas_team_flag {
+    position: absolute;
+    bottom: 20px;
+    left: 130px;
+}
+
+.gilas_tab table {
+    width: 900px;
+}
+
+.gilas_tab table tr {
+    height: 60px;
+    background: #fff;
+    text-align: right;
+    border-bottom: 1px solid #eee;
+}
+
+.gilas_tab table tr td {
+    border-bottom: 1px solid #ddd;
+}
+
+.gilas_tab table tr:nth-child(even) {
+    height: 60px;
+    background: #ccc;
+    text-align: right;
+    border-bottom: 1px solid #eee;
+}
+
+.date {
+    text-align: left;
+}
+
+.flag, .status, .score {
+    text-align: center;
+}
+
+.flag img {
+    border: 1px solid #ccc;
+}
+
+#gilas_past_games {
+    display: none;
+}
+
+.ads {
+    width: 950px;
+    height: 100px;
+    margin: 0 auto;
+    border: 1px solid red;
+}
 
 
 

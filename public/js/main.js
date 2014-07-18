@@ -1,10 +1,8 @@
 (function() {
 
 	var $frameNav 		= $('#main_stream_nav li a'),
-		$frame 			= $('#main_frame_holder iframe'),
-		$frameTV5 		= $('#iframe_tv5'),
-		$frameAksyonTV 	= $('#iframe_aksyontv'),
-		$frameGilas 	= $('#iframe_gilas');
+		$frame 			= $('#main_frame_holder'),
+		$gilasTab 		= $('.tab-gilas-games');
 
 	function setFrameWidthAndMarginTop() {
 		var _this = $(this);
@@ -14,7 +12,8 @@
 	}
 
 	setFrameWidthAndMarginTop();
-	$.backstretch('./public/image/smart-gilas-2014-livestream-bg-study-1.jpg');
+	$('#main header').backstretch('./public/image/smart-gilas-2014-livestream-bg-study-1.jpg');
+	$('#gilas_games').backstretch('./public/image/dome.jpg');
 	$(window).resize(setFrameWidthAndMarginTop);
 
 	$frameNav.on('click', function() {
@@ -33,16 +32,37 @@
 		_this.addClass(defaultClass + '_active')
 
 		// Reset frame class
-		$frame.removeClass('active');
+		$frame.html('');
 
 		// Show the right frame
 		if(target === 'tv5') {
-			$frameTV5.addClass('active');
+			$frame.html('<iframe src="http://news5.com.ph/embed.aspx?g=0A999CBBC5"></iframe>');
 		} else if(target === 'aksyontv') {
-			$frameAksyonTV.addClass('active');
+			$frame.html('<iframe src="http://news5.com.ph/embed.aspx?g=A12F20084A"></iframe>');
 		} else if(target === 'gilas') {
-			$frameGilas.addClass('active');
+			$frame.html('<iframe src="http://news5.com.ph/embed.aspx?g=6D0677CEC534439"></iframe>');
 		}
+	});
+
+	$gilasTab.on('click', function() {
+		var _this = $(this),
+			$parent = _this.parent(),
+			target = _this.data('target'),
+			$img = _this.children(),
+			source = $img.attr('src');
+
+		if(!$img.attr('src').match(/(-active)/)) $img.attr('src', source.replace('.', '-active.'));
+
+		if($parent.prev().length) {
+			var parentSource = $parent.prev().find('img').attr('src');
+			$parent.prev().find('img').attr('src', parentSource.replace('-active', ''));
+		} else if($parent.next().length) {
+			var parentSource = $parent.next().find('img').attr('src');
+			$parent.next().find('img').attr('src', parentSource.replace('-active', ''));
+		}
+
+		$('.gilas_tab').hide();
+		$('#' + target).show();
 	});
 
 }());
