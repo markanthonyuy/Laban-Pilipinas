@@ -309,17 +309,165 @@ textarea {
 .ads {
     width: 950px;
     height: 100px;
+    line-height: 100px;
     margin: 0 auto;
     border: 1px solid red;
+    text-align: center;
+    font-size: 44px;
 }
 
+#rosters {
+    margin-top: 150px;
+    width: 100%;
+    background: url('../../public/image/bg-rosters.jpg') repeat-x left bottom;
+    height: 417px;
+    position: relative;
+}
 
+#rosters_main {
+    position: relative;
+    height: 417px;
+    width: 1004px;
+    margin: 0 auto;
+    background: url('../../public/image/bg-rosters-main.jpg') no-repeat left 44px;
+}
 
+.rosters_player {
+    float: left;    
+    margin-left: 80px;
+}
 
+.rosters_player h2 {
+    display: inline-block;
+    margin: 0 0 20px 20px;
+}
 
+.rosters_team {
+    margin-bottom: 20px;
+}
 
+.rosters_dummy {
+    position: absolute;
+    top: -80px;
+    left: 700px;
+}
 
+#popup {
+    position: absolute;
+    top: -80px;
+    left: 50px;
+    width: 900px;
+    height: 640px;
+    display: none;
+}
 
+#popup p {
+    position: absolute;
+    top: -20px;
+    right: 0;
+}
+
+#popup p a {
+    text-decoration: none;
+}
+
+#photo_social_media_wrap {
+    padding-top: 110px;
+    background: url('../../public/image/bg-photo-gallery.jpg') no-repeat -20px -25px;
+}
+
+#photo_gallery {
+    width: 1000px;
+    margin: 10px auto;
+}
+
+#photo_gallery h2 {
+    text-align: center;
+}
+
+.photo_gallery_holder {
+    width: 980px;
+    position: relative;
+    margin: 0 auto;
+    height: 195px;
+    background: #000;
+}
+
+#photo_nav_left {
+    float: left;
+    width: 54px;
+}
+
+.photo_holder {
+    float: left;
+    width: 872px;
+    height: 195px;
+    overflow: hidden;
+    position: relative;
+}
+
+.photo_holder ul {
+    list-style: none;
+    white-space: nowrap;
+    position: absolute;
+    font-size: 0; /* Hack: remove extra margin of inline-block elements */
+}
+
+.photo_holder ul li {
+    width: 140px;
+    height: 140px;
+    display: inline-block;
+    margin: 25px 0 0 29px;
+    background: #fff;
+}
+
+#photo_nav_right {
+    float: right;
+    width: 54px;
+
+}
+
+#social_media {
+    width: 980px;
+    margin: 70px auto;
+
+}
+
+#articles {
+    float: left;
+}
+
+#tweets {
+    float: right;
+}
+
+.articles_holder,
+.tweets_holder {
+    height: 330px;
+    background: #000;
+    padding: 10px;
+}
+
+.articles_holder ul {
+    list-style: none;
+    width: 100%;
+    overflow-y: scroll;
+    height: 300px;
+}
+
+.articles_holder ul li {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+}
+
+.articles_holder ul li a {
+    font-size: 13px;
+    color: #000;
+    text-decoration: none;
+    margin-left: 10px;
+}
 
 /* ==========================================================================
    Helper classes
