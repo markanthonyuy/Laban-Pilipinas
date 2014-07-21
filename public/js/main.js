@@ -1,8 +1,15 @@
 (function() {
 
+	// Cache vars
 	var $frameNav 		= $('#main_stream_nav li a'),
 		$frame 			= $('#main_frame_holder'),
-		$gilasTab 		= $('.tab-gilas-games');
+		$gilasTab 		= $('.tab-gilas-games'),
+		$openPopup 		= $('.player_profile'),
+		$closePopup 	= $('#close_popup'),
+		$popup 			= $('#popup'),
+		$photoGallery 		= $('.photo_holder ul'),
+		$photoGalleryLeft 	= $('#photo_nav_left'),
+		$photoGalleryRight 	= $('#photo_nav_right');
 
 	function setFrameWidthAndMarginTop() {
 		var _this = $(this);
@@ -45,14 +52,15 @@
 	});
 
 	$gilasTab.on('click', function() {
-		var _this = $(this),
+		var _this 	= $(this),
 			$parent = _this.parent(),
-			target = _this.data('target'),
-			$img = _this.children(),
-			source = $img.attr('src');
+			target 	= _this.data('target'),
+			$img 	= _this.children(),
+			source 	= $img.attr('src');
 
 		if(!$img.attr('src').match(/(-active)/)) $img.attr('src', source.replace('.', '-active.'));
 
+		// Check if upcoming games or past games tab has been clicked
 		if($parent.prev().length) {
 			var parentSource = $parent.prev().find('img').attr('src');
 			$parent.prev().find('img').attr('src', parentSource.replace('-active', ''));
@@ -63,6 +71,33 @@
 
 		$('.gilas_tab').hide();
 		$('#' + target).show();
+	});
+
+	/* Pop Up */
+
+	$openPopup.on('click', function() {
+		var _this = $(this),
+			imgSource = _this.data('target') + '.jpg';
+		$popup.find('div').html('<img src="' + 'public/image/' + imgSource + '">');
+		$popup.show();
+	});
+
+	$closePopup.on('click', function() {
+		$popup.hide();
+	});
+
+	/* Photo Gallery Nav */
+
+	$photoGalleryLeft.on('click', function() {
+		$photoGallery.animate({
+			left: '-=169px'
+		}, 500);
+	});
+
+	$photoGalleryRight.on('click', function() {
+		$photoGallery.animate({
+			left: '+=169px'
+		}, 500);
 	});
 
 }());
