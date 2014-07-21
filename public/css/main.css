@@ -390,7 +390,7 @@ textarea {
     position: relative;
     margin: 0 auto;
     height: 195px;
-    background: #000;
+    background: #3266CC;
 }
 
 #photo_nav_left {
@@ -444,7 +444,7 @@ textarea {
 .articles_holder,
 .tweets_holder {
     height: 330px;
-    background: #000;
+    background: #3266CC;
     padding: 10px;
 }
 
@@ -467,6 +467,122 @@ textarea {
     color: #000;
     text-decoration: none;
     margin-left: 10px;
+}
+
+#kampihan_wall {
+    margin: 0 auto;
+    width: 100%;
+}
+
+#kampihan_wall h2 {
+    text-align: center;
+}
+
+.kampihan_wall_holder {
+    background: #3266CC;
+}
+
+.kampihan_wall_holder h3 {
+    text-align: center;
+}
+
+.kampihan_wall_item_holder {
+    width: 1000px;
+    margin: 50px auto;
+}
+
+.kampihan_wall_item {
+    float: left;
+    width: 280px;
+    margin-left: 40px;
+}
+
+.kampihan_wall_item_top {
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #ccc;
+}
+
+.wall_hashtag {
+    font-size: 12px;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.wall_image {
+    width: 260px;
+    height: 250px;
+    background: #000;
+}
+
+.kampihan_wall_item_bottom {
+    height: 60px;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: #aaa;
+}
+
+.wall_info_holder {
+}
+
+.wall_info {
+    float: left;
+}
+
+.wall_name {
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.wall_datetime {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 12px;
+    color: #fff;
+}
+
+.wall_photo_icon {
+    float: right;
+}
+
+#kampihan_wall_load_more {
+    text-align: center;
+}
+
+footer {
+    background: #003399;
+    margin-top: 100px;
+    padding-bottom: 80px;
+}
+
+#footer_wrap {
+    margin: 0 auto;
+    width: 1000px;
+    overflow: hidden;
+}
+
+#footer_ads {
+    margin: 60px 0 40px 0;
+}
+
+#footer_links {
+    list-style: none;
+    margin: 0 auto;
+    width: 700px;
+}
+
+#footer_links li {
+    float: left;
+    margin-left: 20px;
+}
+
+#copyright {
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
 }
 
 /* ==========================================================================
