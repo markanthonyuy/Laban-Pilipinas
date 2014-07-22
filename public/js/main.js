@@ -1,25 +1,50 @@
 (function() {
 
 	// Cache vars
-	var $frameNav 		= $('#main_stream_nav li a'),
-		$frame 			= $('#main_frame_holder'),
-		$gilasTab 		= $('.tab-gilas-games'),
-		$openPopup 		= $('.player_profile'),
-		$closePopup 	= $('#close_popup'),
-		$popup 			= $('#popup'),
-		$photoGallery 		= $('.photo_holder ul'),
-		$photoGalleryLeft 	= $('#photo_nav_left'),
-		$photoGalleryRight 	= $('#photo_nav_right');
+	var $frameNav       = $('#main_stream_nav li a'),
+		$frame          = $('#main_frame_holder'),
+		$gilasTab       = $('.tab-gilas-games'),
+
+		// Popup
+		$openPopup      = $('.player_profile'),
+		$closePopup     = $('#close_popup'),
+		$popup          = $('#popup'),
+		$popupImage 	= $('.popup_body_image_holder'),
+		$popupLeft		= $('#popup_move_left'),
+		$popupRight		= $('#popup_move_right'),
+
+		// Photo Gallery
+		$photoGallery       = $('.photo_holder ul'),
+		$photoGalleryLeft   = $('#photo_nav_left'),
+		$photoGalleryRight  = $('#photo_nav_right'),
+
+		// Images
+		popupImages 			= [	'popup-gabe-norwood', 'popup-gary-david', 'popup-japeth-aguilar', 
+									'popup-jayson-castro', 'popup-jeff-chan', 'popup-jimmy-alapag', 
+									'popup-ranidel-deocampo',  'popup-marcus-douthit', 'popup-marc-pingris', 
+									'popup-la-tenorio', 'popup-larry-fonacier', 'popup-junemar-fajardo' ],
+
+		// Social Media
+		$loadMore 		= $('#load_more'),
+
+		// Overlay
+
+		$overlay 		= $('#overlay');
 
 	function setFrameWidthAndMarginTop() {
 		var _this = $(this);
-			width = _this.width() * .5;
-			marginTop = _this.height() * .22;
-		$('#main_stream').width(width).css('margin-top', marginTop + 'px');
+			width = _this.width() * .4;
+			marginTop = _this.height() * .3;
+		$('#main_stream').width(width).css({
+			'marginTop': marginTop + 'px',
+		});
 	}
 
 	setFrameWidthAndMarginTop();
-	$('#main header').backstretch('./public/image/smart-gilas-2014-livestream-bg-study-1.jpg');
+	$('#main header').backstretch('./public/image/bg-main.jpg', {
+		centeredY: false,
+		centeredX: false
+	});
 	$('#gilas_games').backstretch('./public/image/dome.jpg');
 	$(window).resize(setFrameWidthAndMarginTop);
 
@@ -52,11 +77,11 @@
 	});
 
 	$gilasTab.on('click', function() {
-		var _this 	= $(this),
+		var _this   = $(this),
 			$parent = _this.parent(),
-			target 	= _this.data('target'),
-			$img 	= _this.children(),
-			source 	= $img.attr('src');
+			target  = _this.data('target'),
+			$img    = _this.children(),
+			source  = $img.attr('src');
 
 		if(!$img.attr('src').match(/(-active)/)) $img.attr('src', source.replace('.', '-active.'));
 
@@ -77,13 +102,47 @@
 
 	$openPopup.on('click', function() {
 		var _this = $(this),
-			imgSource = _this.data('target') + '.jpg';
-		$popup.find('div').html('<img src="' + 'public/image/' + imgSource + '">');
+			imgSource = _this.data('target') + '.jpg',
+			imgIndex = _this.data('index');
+		$popupImage.html('<img src="' + 'public/image/' + imgSource + '" data-index="'+ imgIndex +'">');
+		$overlay.show();
 		$popup.show();
 	});
 
 	$closePopup.on('click', function() {
 		$popup.hide();
+		$overlay.hide();
+	});
+
+	$overlay.on('click', function() {
+		$(this).hide();
+		$popup.hide();
+	})
+
+	$popupLeft.on('click', function() {
+		var oldImageIndex = $popupImage.find('img').data('index'),
+			image;
+
+		if(parseInt(oldImageIndex) > 1) {
+			image = '<img src="public/image/' + popupImages[parseInt(oldImageIndex) - 2] + '" data-index="'+ (parseInt(oldImageIndex) - 1) +'">';
+		} else {
+			image = '<img src="public/image/' + popupImages[11] + '" data-index="12">';
+		}
+		
+		$popupImage.html(image);
+	});
+
+	$popupRight.on('click', function() {
+		var oldImageIndex = $popupImage.find('img').data('index'),
+			image;
+
+		if(parseInt(oldImageIndex) >= 12) {
+			image = '<img src="public/image/' + popupImages[0] + '" data-index="1">';
+		} else {
+			image = '<img src="public/image/' + popupImages[parseInt(oldImageIndex)] + '" data-index="'+ (parseInt(oldImageIndex) + 1) +'">';
+		}
+		
+		$popupImage.html(image);
 	});
 
 	/* Photo Gallery Nav */
@@ -98,6 +157,46 @@
 		$photoGallery.animate({
 			left: '+=169px'
 		}, 500);
+	});
+
+	/* Smooth Scrolling */
+	$('a[href*=#]:not([href=#])').click(function() {
+		if(location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if(target.length) {
+				$('html,body').animate({
+				  scrollTop: target.offset().top
+				}, 600);
+				return false;
+			}
+		}
+	});
+
+	$loadMore.on('click', function() {
+		// Append dummy data
+		$('.kampihan_wall_item_holder').append('<div class="kampihan_wall_item">' +
+													'<div class="kampihan_wall_item_top">' +
+														'<p class="wall_hashtag">#gilaspilipinas #mabuhaygilas #labanpilipinas</p>' +
+														'<p class="wall_image"></p>' +
+													'</div>' +
+													'<div class="kampihan_wall_item_bottom">' +
+														'<div class="wall_info_holder clearfix">' +
+															'<div class="wall_info">' +
+																'<p class="wall_name"><a href="#">Mark Uy</a></p>' +
+																'<p class="wall_datetime">Posted Today</p>' +
+															'</div>' +
+															'<p class="wall_photo_icon"><img src="public/image/wall-photo-icon.jpg"></p>' +
+														'</div>' +
+													'</div>' +
+												'</div>');
+	});
+
+
+	$(window).load(function() {
+		$('.kampihan_wall_item_holder').masonry({
+			itemSelector: '.kampihan_wall_item'
+		});
 	});
 
 }());
