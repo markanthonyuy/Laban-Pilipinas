@@ -14,6 +14,12 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
 }
 
 *, *::after, *::before {
@@ -100,6 +106,16 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+@font-face {
+    font-family: 'Lato Regular';
+    src: url('../../public/font/lato/Lato_Regular/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../../public/font/Oswald/Oswald-Regular.ttf') format('truetype');
+}
+
 #main {
 
 }
@@ -111,9 +127,35 @@ textarea {
     overflow: hidden;
 }
 
-#main_header_nav {
+#main_logo {
     position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+#text_tuloy {
+    position: absolute;
+    top: 100px;
+    left: 450px;
+}
+
+#fiba_logo {
+    position: absolute;
+    top: 70px;
+    right: 50px;
+}
+
+#text_laban {
+    position: absolute;
+    left: 50%;
+    margin-left: -188px;
+    bottom: 20px;
+}
+
+#main_header_nav {
+    position: fixed;
     top: 40%;
+    z-index: 9;
 }
 
 .social_media {
@@ -130,17 +172,30 @@ textarea {
     list-style: none;
 }
 
+#main_header_nav ul li {
+}
+
 #main_header_nav ul li a {
     width: 100%;
     display: inline-block;
+    height: 30px;
+    line-height: 30px;
     background: #ccc;
     margin-bottom: 1px;
     text-decoration: none;
+    text-align: center;
     color: #fff;
+    background: #666;
+    font-family: 'Oswald';
+}
+
+#main_header_nav ul li a:hover {
+    background: #980000;
 }
 
 #main_stream {
     margin: 0 auto;
+    overflow: hidden;
 }
 
 #main_stream_nav {
@@ -195,6 +250,7 @@ textarea {
 }
 
 #main_frame_holder {
+    border: 1px solid #000;
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     padding-top: 25px;
@@ -232,6 +288,7 @@ textarea {
     margin: 0 auto 40px auto;
     background: url('../../public/image/bg-gilas-games.jpg') no-repeat top left;
     overflow: hidden;
+    position: relative;
 }
 
 .gilas_games_wrap nav {
@@ -258,18 +315,21 @@ textarea {
 
 #gilas_team_logo {
     position: absolute;
-    top: 20px;
+    top: 80px;
     left: 20px;
+    z-index: 3;
 }
 
 #gilas_team_flag {
     position: absolute;
-    bottom: 20px;
+    bottom: 70px;
     left: 130px;
+    z-index: 3;
 }
 
 .gilas_tab table {
     width: 900px;
+    z-index: 2;
 }
 
 .gilas_tab table tr {
@@ -307,14 +367,17 @@ textarea {
 }
 
 .ads {
-    width: 950px;
+    width: 955px;
     height: 100px;
     line-height: 100px;
     margin: 0 auto;
-    border: 1px solid red;
     text-align: center;
     font-size: 44px;
 }
+
+/*
+ * Rosters
+ */
 
 #rosters {
     margin-top: 150px;
@@ -329,12 +392,16 @@ textarea {
     height: 417px;
     width: 1004px;
     margin: 0 auto;
-    background: url('../../public/image/bg-rosters-main.jpg') no-repeat left 44px;
+    background: url('../../public/image/bg-rosters-main-2.jpg') no-repeat left 44px;
 }
 
 .rosters_player {
     float: left;    
     margin-left: 80px;
+}
+
+.rosters_player_team {
+    width: 600px;
 }
 
 .rosters_player h2 {
@@ -346,10 +413,25 @@ textarea {
     margin-bottom: 20px;
 }
 
+.rosters_team img {
+    margin-right: 20px;
+}
+
 .rosters_dummy {
     position: absolute;
     top: -80px;
     left: 700px;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.9); /*dim the background*/
+    display: none;
 }
 
 #popup {
@@ -359,17 +441,40 @@ textarea {
     width: 900px;
     height: 640px;
     display: none;
+    z-index: 11;
 }
 
-#popup p {
+.popup_close {
     position: absolute;
     top: -20px;
     right: 0;
+    z-index: 12;
 }
 
-#popup p a {
+.popup_close a {
     text-decoration: none;
 }
+
+.popup_body {
+    position: relative;
+    z-index: 11;
+}
+
+.popup_left {
+    position: absolute;
+    left: -54px;
+    top: 200px;
+}
+
+.popup_right {
+    position: absolute;
+    right: -54px;
+    top: 200px; 
+}
+
+/*
+ * Photo Gallery and Social Media
+ */
 
 #photo_social_media_wrap {
     padding-top: 110px;
@@ -453,6 +558,7 @@ textarea {
     width: 100%;
     overflow-y: scroll;
     height: 300px;
+    width: 450px;
 }
 
 .articles_holder ul li {
@@ -460,6 +566,9 @@ textarea {
     line-height: 50px;
     border-bottom: 1px solid #ccc;
     background: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .articles_holder ul li a {
@@ -472,6 +581,8 @@ textarea {
 #kampihan_wall {
     margin: 0 auto;
     width: 100%;
+    background: url('../../public/image/bg-social-media.jpg') repeat-x bottom;
+    padding-bottom: 27.5px;
 }
 
 #kampihan_wall h2 {
@@ -514,6 +625,7 @@ textarea {
     width: 260px;
     height: 250px;
     background: #000;
+    color: #fff;
 }
 
 .kampihan_wall_item_bottom {
@@ -522,6 +634,7 @@ textarea {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background: #aaa;
+    margin-bottom: 10px;
 }
 
 .wall_info_holder {
@@ -532,9 +645,13 @@ textarea {
 }
 
 .wall_name {
+    margin-bottom: 10px;
+}
+
+.wall_name a {
     font-size: 12px;
     color: #fff;
-    margin-bottom: 10px;
+    text-decoration: none;
 }
 
 .wall_datetime {
