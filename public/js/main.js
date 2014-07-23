@@ -134,7 +134,7 @@
 		if(parseInt(oldImageIndex) > 1) {
 			image = '<img src="public/image/' + popupImages[parseInt(oldImageIndex) - 2] + '.jpg" data-index="'+ (parseInt(oldImageIndex) - 1) +'">';
 		} else {
-			image = '<img src="public/image/' + popupImages[11] + '" data-index="12">';
+			image = '<img src="public/image/' + popupImages[11] + '.jpg" data-index="12">';
 		}
 		
 		$popupImage.html(image);
@@ -145,7 +145,7 @@
 			image;
 
 		if(parseInt(oldImageIndex) >= 12) {
-			image = '<img src="public/image/' + popupImages[0] + '" data-index="1">';
+			image = '<img src="public/image/' + popupImages[0] + '.jpg" data-index="1">';
 		} else {
 			image = '<img src="public/image/' + popupImages[parseInt(oldImageIndex)] + '.jpg" data-index="'+ (parseInt(oldImageIndex) + 1) +'">';
 		}
