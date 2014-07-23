@@ -6,7 +6,9 @@
 	$photo_gallery = @simplexml_load_string($photo_gallery_feeds);
 
 	$kampihan_wall_feeds = @file_get_contents('http://www.tv5.com.ph/api/sns/rss/0/labanpilipinas2014');
-	$kampihan_wall = @simplexml_load_string($kampihan_wall_feeds);*/
+	$kampihan_wall = @simplexml_load_string($kampihan_wall_feeds);
+
+	$social_media_limit = 3;*/
 ?> -->
 <!doctype html>
 <html class="no-js" lang="">
@@ -24,7 +26,9 @@
 		<link rel="stylesheet" href="public/css/normalize.css">
 		<link rel="stylesheet" href="public/css/main.css">
 		<script src="public/js/vendor/modernizr-2.8.0.min.js"></script>
-		<!-- <script src="http://jwpsrv.com/library/f72N8OqYEeKr4yIACqoQEQ.js"></script> -->
+		<script>
+			window.socialMediaLimit = 3; /*<?php //echo $social_media_limit ?>*/
+		</script>
 	</head>
 	<body>
 		<!--[if lt IE 8]>
@@ -47,9 +51,7 @@
 				</ul>
 			</nav>
 			<header>
-				<h1 id="main_logo"><a href="#"><img src="public/image/logo-main.png"></a></h1>
-				<p id="text_tuloy"><img src="public/image/text-tuloy-ang-laban.png"></p>
-				<p id="fiba_logo"><img src="public/image/logo-fiba.png"></p>
+				<img src="public/image/bg-main-2.jpg" class="perfect_bg">
 				<section id="main_stream">
 					<nav class="clearfix">
 						<ul id="main_stream_nav" class="clearfix">
@@ -62,10 +64,17 @@
 						<iframe src="http://news5.com.ph/embed.aspx?g=0A999CBBC5" id="iframe_tv5"></iframe>
 					</div>
 				</section>
-				<p id="text_laban"><img src="public/image/text-laban-pilipinas.png"></p>
 			</header>
 			<section id="gilas_games">
-				<h2><img src="public/image/heading-gilas-games.png" alt="GILAS GAMES"></h2>
+				<img src="public/image/bg-dome.jpg" class="perfect_bg">
+				<div class="temp_image">
+					<img src="public/image/bg-to-be-announced.png">
+					<div class="ads">
+						<a href="http://sports5.ph" target="_blank"><img src="public/image/superleaderboard-955x150-sports5ph.jpg">
+						</a>
+					</div>
+				</div>
+				<!-- <h2><img src="public/image/heading-gilas-games.png" alt="GILAS GAMES"></h2>
 				<div class="gilas_games_wrap">
 					<nav>
 						<ul class="clearfix">
@@ -176,8 +185,7 @@
 							</tbody>
 						</table>
 					</div>
-				</div>
-				<div class="ads"><img src="public/image/superleaderboard-955x150-sports5ph.jpg"></div>
+				</div> -->
 			</section> <!-- </gilas_games> -->
 
 			<section id="rosters">
@@ -270,9 +278,9 @@
 						<h2><img src="public/image/heading-articles.png" alt="ARTICLES"></h2>
 						<div class="articles_holder">
 							<ul>
-								<!--<?php
-									/*if(!empty($articles)) {
-										foreach($articles->channel->item as $i){
+								<?php
+									if(!empty($articles)) {
+										foreach($articles->channel->item as $i) {
 											$fiba = 0;
 											foreach($i->category as $c){
 												if(trim($c) == 'fiba asia' || trim($c) == '2013 fiba asia championship') {
@@ -286,8 +294,8 @@
 										}
 									} else {
 										echo 'Unable to load article at this time';
-									}*/
-								?> -->
+									}
+								?>
 							</ul>
 						</div>
 					</div>
@@ -305,14 +313,20 @@
 				<h2><img src="public/image/heading-supportahan.png" alt="KAMPIHAN WALL"></h2>
 				<div class="kampihan_wall_holder">
 					<h3><img src="public/image/sub-header-laban-pilipinas.jpg"></h3>
-					<div class="kampihan_wall_item_holder clearfix">
+					<div id="kampihan_wall_item_holder" class="clearfix">
 						<!-- <?php 
-							/*foreach($kampihan_wall->channel->item as $key => $item) {
+							/*$ctr = 0;
+							foreach($kampihan_wall->channel->item as $key => $item) {
+								$class = $ctr < $social_media_limit ? 'show' 
+												  					: 'hide';
+								$platform = $item->platform == 'Twitter' ? '<img src="public/image/icon-twitter.jpg">' 
+																		 : '<img src="public/image/icon-instagram.jpg">';
+								$image = $item->platform == 'Instagram' ? '<img src="'.$item->image.'" width="260">' : '';
 
-								echo  	'<div class="kampihan_wall_item">
+								echo  	'<div class="kampihan_wall_item '. $class .'">
 											<div class="kampihan_wall_item_top">
-												<p class="wall_hashtag">#gilaspilipinas #mabuhaygilas #labanpilipinas</p>
-												<p class="wall_image">'.$item->message.'</p>
+												<p class="wall_hashtag">'.$item->message.'</p>
+												<p class="wall_image">'.$image.'</p>
 											</div>
 											<div class="kampihan_wall_item_bottom">
 												<div class="wall_info_holder clearfix">
@@ -320,26 +334,27 @@
 														<p class="wall_name"><a href="'.$item->link.'">'.$item->name.'</a></p>
 														<p class="wall_datetime">Posted on '.$item->post_date.'</p>
 													</div>
-													<p class="wall_photo_icon"><img src="public/image/wall-photo-icon.jpg"></p>
+													<p class="wall_photo_icon">'.$platform.'</p>
 												</div>
 											</div>
 										</div>';
-							}*/
+								$ctr++;*/
+							}
 						?> -->
 					</div>
 					<div id="kampihan_wall_load_more">
-						<a href="javascript:void(0)" id="load_more"><img src="public/image/sub-header-load-more.jpg"></a>
+						<a href="#" id="load_more"><img src="public/image/sub-header-load-more.jpg"></a>
 					</div>
 				</div>
 			</section> <!-- </kampihan_wall> -->
 			<footer>
 				<div id="footer_wrap">
-					<div id="footer_ads" class="ads">ADS</div>
+					<div id="footer_ads" class="ads"><a href="https://play.google.com/store/apps/details?id=pbaoninteraktv.client.android&hl=en" target="_blank"><img src="public/image/pinoyhoops.jpg"></a></div>
 					<ul id="footer_links" class="clearfix">
-						<li><a href="#"><img src="public/image/footer-link-tv5.jpg"></a></li>
-						<li><a href="#"><img src="public/image/footer-link-sports5.jpg"></a></li>
-						<li><a href="#"><img src="public/image/footer-link-tv5-everywhere.jpg"></a></li>
-						<li><a href="#"><img src="public/image/footer-link-aksyontv.jpg"></a></li>
+						<li><a href="http://www.tv5.com.ph/"><img src="public/image/footer-link-tv5.jpg"></a></li>
+						<li><a href="http://www.interaksyon.com/interaktv/"><img src="public/image/footer-link-sports5.jpg"></a></li>
+						<li><a href="http://news5.com.ph/"><img src="public/image/footer-link-tv5-everywhere.jpg"></a></li>
+						<li><a href="http://n5e.interaksyon.com/live/A12F20084A/live-aksyon-tv"><img src="public/image/footer-link-aksyontv.jpg"></a></li>
 					</ul>
 					<p id="copyright">&copy; 2014 ABC Development Corporation. All Rights Reserved.</p>
 				</div>
