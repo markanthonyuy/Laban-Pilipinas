@@ -8,7 +8,7 @@
 	$kampihan_wall_feeds = @file_get_contents('http://www.tv5.com.ph/api/sns/rss/0/labanpilipinas2014');
 	$kampihan_wall = @simplexml_load_string($kampihan_wall_feeds);
 
-	$social_media_limit = 3;
+	$social_media_limit = 4;
 ?>
 <!doctype html>
 <html class="no-js" lang="">

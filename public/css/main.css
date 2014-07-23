@@ -614,15 +614,12 @@ textarea {
 }
 
 #kampihan_wall_item_holder {
-    width: auto;
-    max-width: 1000px;
     margin: 50px auto;
 }
 
 .kampihan_wall_item {
     float: left;
     width: 280px;
-    margin-left: 40px;
 }
 
 .show {

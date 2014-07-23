@@ -41,7 +41,17 @@
 			'marginTop': '-' + ($('#main_stream').height() / 2) + 'px',
 			'marginLeft': '-' + (width / 2) + 'px',
 		});
+	}
 
+	function initMasonry() {
+		$('#kampihan_wall_item_holder').imagesLoaded(function() {
+			$('#kampihan_wall_item_holder').masonry({
+				isFitWidth: true,
+				columnWidth: 300,
+				isAnimated: !Modernizr.csstransitions,
+				itemSelector: '.kampihan_wall_item'
+			});
+		});
 	}
 
 	setFrameWidthAndMarginTop();
@@ -49,11 +59,7 @@
 	/*$('#gilas_games').backstretch('./public/image/bg-dome.jpg');*/
 	$(window).resize(function() {
 		setFrameWidthAndMarginTop();
-		$('#kampihan_wall_item_holder').imagesLoaded(function() {
-			$('#kampihan_wall_item_holder').masonry({
-				itemSelector: '.kampihan_wall_item'
-			});
-		})
+		initMasonry()
 	});
 
 	$frameNav.on('click', function() {
@@ -191,22 +197,13 @@
 
 				$(el).removeClass('hide');
 
-				$('#kampihan_wall_item_holder').imagesLoaded(function() {
-					$('#kampihan_wall_item_holder').masonry({
-						itemSelector: '.kampihan_wall_item'
-					});
-				});
+				initMasonry()
 				$(el).addClass('show');
 			}
 		})
 		
 	});
 
-	$('#kampihan_wall_item_holder').imagesLoaded(function() {
-		$('#kampihan_wall_item_holder').masonry({
-			itemSelector: '.kampihan_wall_item'
-		});
-	})
-
+	initMasonry()
 
 }());
