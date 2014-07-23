@@ -471,6 +471,7 @@ textarea {
 
 .popup_body_image_holder {
     background: url('../../public/image/loading.gif') no-repeat center center #fff;
+    height: 100%;
 }
 
 .popup_left {
