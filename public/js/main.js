@@ -32,21 +32,29 @@
 		$overlay 		= $('#overlay');
 
 	function setFrameWidthAndMarginTop() {
-		var _this = $(this);
-			width = _this.width() * .4;
-			marginTop = _this.height() * .3;
+		var _this 		= $(this);
+			width 		= _this.width() * .4;
+			marginTop 	= _this.height() * .3;
+
+		// Center iframe
 		$('#main_stream').width(width).css({
-			'marginTop': marginTop + 'px',
+			'marginTop': '-' + ($('#main_stream').height() / 2) + 'px',
+			'marginLeft': '-' + (width / 2) + 'px',
 		});
+
 	}
 
 	setFrameWidthAndMarginTop();
-	$('#main header').backstretch('./public/image/bg-main.jpg', {
-		centeredY: false,
-		centeredX: false
+	
+	/*$('#gilas_games').backstretch('./public/image/bg-dome.jpg');*/
+	$(window).resize(function() {
+		setFrameWidthAndMarginTop();
+		$('#kampihan_wall_item_holder').imagesLoaded(function() {
+			$('#kampihan_wall_item_holder').masonry({
+				itemSelector: '.kampihan_wall_item'
+			});
+		})
 	});
-	$('#gilas_games').backstretch('./public/image/dome.jpg');
-	$(window).resize(setFrameWidthAndMarginTop);
 
 	$frameNav.on('click', function() {
 		var _this = $(this),
@@ -173,30 +181,32 @@
 		}
 	});
 
-	$loadMore.on('click', function() {
-		// Append dummy data
-		$('.kampihan_wall_item_holder').append('<div class="kampihan_wall_item">' +
-													'<div class="kampihan_wall_item_top">' +
-														'<p class="wall_hashtag">#gilaspilipinas #mabuhaygilas #labanpilipinas</p>' +
-														'<p class="wall_image"></p>' +
-													'</div>' +
-													'<div class="kampihan_wall_item_bottom">' +
-														'<div class="wall_info_holder clearfix">' +
-															'<div class="wall_info">' +
-																'<p class="wall_name"><a href="#">Mark Uy</a></p>' +
-																'<p class="wall_datetime">Posted Today</p>' +
-															'</div>' +
-															'<p class="wall_photo_icon"><img src="public/image/wall-photo-icon.jpg"></p>' +
-														'</div>' +
-													'</div>' +
-												'</div>');
+	$loadMore.on('click', function(e) {
+		e.preventDefault();
+
+		var total = $('.kampihan_wall_item').length,
+			showed = $('.show').length;
+		$('.kampihan_wall_item').each(function(index, el) {
+			if((index + 1) >= showed && (index + 1) <= (showed + socialMediaLimit)) {
+
+				$(el).removeClass('hide');
+
+				$('#kampihan_wall_item_holder').imagesLoaded(function() {
+					$('#kampihan_wall_item_holder').masonry({
+						itemSelector: '.kampihan_wall_item'
+					});
+				});
+				$(el).addClass('show');
+			}
+		})
+		
 	});
 
-
-	$(window).load(function() {
-		$('.kampihan_wall_item_holder').masonry({
+	$('#kampihan_wall_item_holder').imagesLoaded(function() {
+		$('#kampihan_wall_item_holder').masonry({
 			itemSelector: '.kampihan_wall_item'
 		});
-	});
+	})
+
 
 }());
