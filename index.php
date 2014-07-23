@@ -1,5 +1,5 @@
-<!-- <?php 
-	/*$article_feeds = @file_get_contents('http://www.interaksyon.com/interaktv/tag/2013-fiba-asia-championship/feed');
+<?php 
+	$article_feeds = @file_get_contents('http://www.interaksyon.com/interaktv/tag/2013-fiba-asia-championship/feed');
 	$articles = @simplexml_load_string($article_feeds);
 
 	$photo_gallery_feeds = @file_get_contents('http://www.interaksyon.com/interaktv/photos/basketball/feed/');
@@ -8,8 +8,8 @@
 	$kampihan_wall_feeds = @file_get_contents('http://www.tv5.com.ph/api/sns/rss/0/labanpilipinas2014');
 	$kampihan_wall = @simplexml_load_string($kampihan_wall_feeds);
 
-	$social_media_limit = 3;*/
-?> -->
+	$social_media_limit = 3;
+?>
 <!doctype html>
 <html class="no-js" lang="">
 	<head>
@@ -27,7 +27,7 @@
 		<link rel="stylesheet" href="public/css/main.css">
 		<script src="public/js/vendor/modernizr-2.8.0.min.js"></script>
 		<script>
-			window.socialMediaLimit = 3; /*<?php //echo $social_media_limit ?>*/
+			window.socialMediaLimit = <?php echo $social_media_limit ?>;
 		</script>
 	</head>
 	<body>
@@ -278,8 +278,8 @@
 						<h2><img src="public/image/heading-articles.png" alt="ARTICLES"></h2>
 						<div class="articles_holder">
 							<ul>
-								<!--<?php
-									/*if(!empty($articles)) {
+								<?php
+									if(!empty($articles)) {
 										foreach($articles->channel->item as $i) {
 											$fiba = 0;
 											foreach($i->category as $c){
@@ -294,8 +294,8 @@
 										}
 									} else {
 										echo 'Unable to load article at this time';
-									}*/
-								?> -->
+									}
+								?>
 							</ul>
 						</div>
 					</div>
@@ -310,12 +310,12 @@
 			</section>
 
 			<section id="kampihan_wall">
-				<h2><img src="public/image/heading-supportahan.png" alt="KAMPIHAN WALL"></h2>
+				<h2><img src="public/image/heading-suportahan.png" alt="SUPORTAHAN ANG LABAN"></h2>
 				<div class="kampihan_wall_holder">
 					<h3><img src="public/image/sub-header-laban-pilipinas.jpg"></h3>
 					<div id="kampihan_wall_item_holder" class="clearfix">
-						<!-- <?php 
-							/*$ctr = 0;
+						<?php 
+							$ctr = 0;
 							foreach($kampihan_wall->channel->item as $key => $item) {
 								$class = $ctr < $social_media_limit ? 'show' 
 												  					: 'hide';
@@ -338,9 +338,9 @@
 												</div>
 											</div>
 										</div>';
-								$ctr++;*/
+								$ctr++;
 							}
-						?> -->
+						?>
 					</div>
 					<div id="kampihan_wall_load_more">
 						<a href="#" id="load_more"><img src="public/image/sub-header-load-more.jpg"></a>
