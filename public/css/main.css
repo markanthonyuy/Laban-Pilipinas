@@ -470,7 +470,7 @@ textarea {
 }
 
 .popup_body_image_holder {
-    background: url('../../public/image/loading.gif') center center;
+    background: url('../../public/image/loading.gif') no-repeat center center;
 }
 
 .popup_left {
