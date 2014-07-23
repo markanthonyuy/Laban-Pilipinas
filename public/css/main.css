@@ -10,6 +10,21 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
+@font-face {
+    font-family: 'Lato Regular';
+    src: url('../../public/font/lato/Lato_Regular/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../../public/font/Oswald/Oswald-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald-Bold';
+    src: url('../../public/font/Oswald/Oswald-Bold.ttf') format('truetype');
+}
+
 html {
     color: #222;
     font-size: 1em;
@@ -20,6 +35,7 @@ html {
 body {
     min-height: 100%;
     position: relative;
+    font-family: 'Lato Regular';
 }
 
 *, *::after, *::before {
@@ -106,50 +122,20 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-@font-face {
-    font-family: 'Lato Regular';
-    src: url('../../public/font/lato/Lato_Regular/Lato-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Oswald';
-    src: url('../../public/font/Oswald/Oswald-Regular.ttf') format('truetype');
-}
-
 #main {
 
 }
 
 #main header {
     width: 100%;
-    min-height: 769px;
+    height: auto;
     position: relative;
     overflow: hidden;
 }
 
-#main_logo {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-}
-
-#text_tuloy {
-    position: absolute;
-    top: 100px;
-    left: 450px;
-}
-
-#fiba_logo {
-    position: absolute;
-    top: 70px;
-    right: 50px;
-}
-
-#text_laban {
-    position: absolute;
-    left: 50%;
-    margin-left: -188px;
-    bottom: 20px;
+.perfect_bg {
+    width: 100%;
+    height: auto;
 }
 
 #main_header_nav {
@@ -159,6 +145,7 @@ textarea {
 }
 
 .social_media {
+   
 
 }
 
@@ -194,11 +181,14 @@ textarea {
 }
 
 #main_stream {
-    margin: 0 auto;
     overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 }
 
 #main_stream_nav {
+   
     list-style: none;
     float: right;
     height: 35px;
@@ -256,6 +246,7 @@ textarea {
     padding-top: 25px;
     height: 0;
     background: #000;
+   
 }
 
 #main_frame_holder iframe {
@@ -274,6 +265,24 @@ textarea {
  */
 
 #gilas_games {
+    text-align: center;
+    position: relative;
+    min-height: 670px;
+}
+
+.temp_image { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -236.5px;
+    margin-left: -475.5px;
+}
+
+.temp_image .ads {
+    margin-top: 50px;
+}
+
+/*#gilas_games {
     width: 100%;
     padding-top: 40px;
 }
@@ -364,7 +373,7 @@ textarea {
 
 #gilas_past_games {
     display: none;
-}
+}*/
 
 .ads {
     width: 955px;
@@ -380,7 +389,7 @@ textarea {
  */
 
 #rosters {
-    margin-top: 150px;
+    margin-top: 220px;
     width: 100%;
     background: url('../../public/image/bg-rosters.jpg') repeat-x left bottom;
     height: 417px;
@@ -458,6 +467,10 @@ textarea {
 .popup_body {
     position: relative;
     z-index: 11;
+}
+
+.popup_body_image_holder {
+    background: url('../../public/image/loading.gif') center center;
 }
 
 .popup_left {
@@ -591,14 +604,17 @@ textarea {
 
 .kampihan_wall_holder {
     background: #3266CC;
+    height: 100%;
+    overflow: auto;
 }
 
 .kampihan_wall_holder h3 {
     text-align: center;
 }
 
-.kampihan_wall_item_holder {
-    width: 1000px;
+#kampihan_wall_item_holder {
+    width: auto;
+    max-width: 1000px;
     margin: 50px auto;
 }
 
@@ -606,6 +622,14 @@ textarea {
     float: left;
     width: 280px;
     margin-left: 40px;
+}
+
+.show {
+    display: inline-block;
+}
+
+.hide {
+    display: none;
 }
 
 .kampihan_wall_item_top {
@@ -623,17 +647,16 @@ textarea {
 
 .wall_image {
     width: 260px;
-    height: 250px;
     background: #000;
     color: #fff;
 }
 
 .kampihan_wall_item_bottom {
-    height: 60px;
-    padding: 10px;
+    height: 50px;
+    padding: 0 10px 0;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background: #aaa;
+    background: #AFAFAF;
     margin-bottom: 10px;
 }
 
@@ -645,13 +668,14 @@ textarea {
 }
 
 .wall_name {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .wall_name a {
     font-size: 12px;
     color: #fff;
     text-decoration: none;
+    font-family: 'Oswald-Bold';
 }
 
 .wall_datetime {
@@ -659,6 +683,7 @@ textarea {
     font-style: italic;
     font-size: 12px;
     color: #fff;
+    font-family: 'Oswald';
 }
 
 .wall_photo_icon {
