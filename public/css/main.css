@@ -540,6 +540,10 @@ textarea {
     background: #fff;
 }
 
+.photo_holder ul li img {
+    width: 100%;
+}
+
 #photo_nav_right {
     float: right;
     width: 54px;
