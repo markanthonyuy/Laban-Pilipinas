@@ -17,6 +17,8 @@
 		$photoGallery       = $('.photo_holder ul'),
 		$photoGalleryLeft   = $('#photo_nav_left'),
 		$photoGalleryRight  = $('#photo_nav_right'),
+		leftFlag 			= true,
+		rightFlag 			= true,
 
 		// Images
 		popupImages 			= [	'popup-gabe-norwood', 'popup-gary-david', 'popup-japeth-aguilar', 
@@ -30,6 +32,8 @@
 		// Overlay
 
 		$overlay 		= $('#overlay');
+
+	// Functions
 
 	function setFrameWidthAndMarginTop() {
 		var _this 		= $(this);
@@ -54,7 +58,20 @@
 		});
 	}
 
+	function initPhotoGallery() {
+		var total = $photoGallery.children().length,
+			viewable = 5,
+			itemWidth = 169,
+			adjustNumber = total / viewable,
+			leftValue = '-' + (itemWidth * Math.round(adjustNumber)) + 'px';
+		console.log(leftValue);
+
+		$photoGallery.css('left', '-' + (itemWidth * Math.round(adjustNumber)) + 'px');
+	}
+
 	setFrameWidthAndMarginTop();
+	initPhotoGallery(); // Center list
+	initMasonry()
 	
 	/*$('#gilas_games').backstretch('./public/image/bg-dome.jpg');*/
 	$(window).resize(function() {
@@ -63,9 +80,9 @@
 	});
 
 	$frameNav.on('click', function() {
-		var _this = $(this),
-			target = _this.data('target'),
-			defaultClass = _this.data('default-class');
+		var _this 			= $(this),
+			target 			= _this.data('target'),
+			defaultClass 	= _this.data('default-class');
 
 		// Reset file to default class
 		$.each($frameNav, function(i, el) {
@@ -115,9 +132,9 @@
 	/* Pop Up */
 
 	$openPopup.on('click', function() {
-		var _this = $(this),
-			imgSource = _this.data('target') + '.jpg',
-			imgIndex = _this.data('index');
+		var _this 		= $(this),
+			imgSource 	= _this.data('target') + '.jpg',
+			imgIndex 	= _this.data('index');
 		$popupImage.html('<img src="' + 'public/image/' + imgSource + '" data-index="'+ imgIndex +'">');
 		$overlay.show();
 		$popup.show();
@@ -160,17 +177,39 @@
 	});
 
 	/* Photo Gallery Nav */
+	// DESC: Infinite Carousel
+	// DONE: Center Photo Gallery items
+	// DONE: Add Flag to prevent callback from firing multiple times
+	// DONE: Append move first item to the last and vice versa
+	// DONE: Adjust css left position for appending and preppending
+	// DONE: Animate left
 
 	$photoGalleryLeft.on('click', function() {
-		$photoGallery.animate({
-			left: '-=169px'
-		}, 500);
+		if(leftFlag) {
+			leftFlag = false;
+			var $firstChild = $photoGallery.find('li:first-child');
+			$photoGallery.append($firstChild);
+			$photoGallery.css('left', '+=169px');
+			$photoGallery.animate({
+				left: '-=169px'
+			}, 500, function() {
+				leftFlag = true;
+			});
+		}
 	});
 
 	$photoGalleryRight.on('click', function() {
-		$photoGallery.animate({
-			left: '+=169px'
-		}, 500);
+		if(rightFlag) {
+			rightFlag = false;
+			var $lastChild = $photoGallery.find('li:last-child');
+			$photoGallery.prepend($lastChild);
+			$photoGallery.css('left', '-=169px');
+			$photoGallery.animate({
+				left: '+=169px'
+			}, 500, function() {
+				rightFlag = true;
+			});
+		}
 	});
 
 	/* Smooth Scrolling */
@@ -190,8 +229,8 @@
 	$loadMore.on('click', function(e) {
 		e.preventDefault();
 
-		var total = $('.kampihan_wall_item').length,
-			showed = $('.show').length;
+		var total 	= $('.kampihan_wall_item').length,
+			showed 	= $('.show').length;
 		$('.kampihan_wall_item').each(function(index, el) {
 			if((index + 1) >= showed && (index + 1) <= (showed + socialMediaLimit)) {
 
@@ -203,7 +242,5 @@
 		})
 		
 	});
-
-	initMasonry()
 
 }());
