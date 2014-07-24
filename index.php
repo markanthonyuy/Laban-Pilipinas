@@ -260,13 +260,11 @@
 						<a href="javascript:void(0)" id="photo_nav_left"><img src="public/image/arrow-left.jpg"></a>
 						<div class="photo_holder">
 							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
+								<?php 
+									foreach ($photo_gallery->channel->item as $key => $photo) {
+										echo '<li><a href="'.$photo->link.'"><img src="'.$photo->guid.'"></a></li>';
+									}
+								?>
 							</ul>
 						</div>
 						<a href="javascript:void(0)" id="photo_nav_right"><img src="public/image/arrow-right.jpg"></a>
