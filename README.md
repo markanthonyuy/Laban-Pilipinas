@@ -3,4 +3,4 @@ Laban-Pilipinas
 
 Laban Pilipinas website
 
-[Visit site](http://markanthonyuy.github.io/Laban-Pilipinas/)
+[Visit site](http://labanpilipinas.sports5.ph)
